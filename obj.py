@@ -1,5 +1,6 @@
 import physics
 
+
 class Obj:
     def __init__(self, integrity, name, symbol):
         self.integrity = integrity
