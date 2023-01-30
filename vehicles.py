@@ -8,8 +8,6 @@ class Vehicles:
 
     def display(self):
         print(f"Weapon: {self.weapon}")
-        print(f"Armor: {self.armor}")
-        print(f"Cover: {self.cover}")
         print(f"State: {self.state}")
         print(f"Veterancy: {self.exp}")
 
