@@ -1,2 +1,2 @@
-# txt-Commando
-A txt based strategy game
+# 64bit-Commando
+A 64bit strategy game
