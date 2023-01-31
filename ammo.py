@@ -1,38 +1,44 @@
 class Ammo:
-    def __init__(self, ammo_type, piercing, explosive):
+    def __init__(self, ammo_type, caliber, piercing, explosive):
         self.ammo_type = ammo_type
+        self.caliber = caliber
         self.piercing = piercing
         self.explosive = explosive
 
     def display(self):
         print(f"Ammo Type: {self.ammo_type}")
+        print(f"Caliber: {self.caliber}")
         print(f"Piercing: {self.piercing}")
         print(f"Explosive: {self.explosive}")
 
-class Ball(Ammo):
+class _303British(Ammo):
     def __init__(self):
-        super().__init__("Ball", "Low", "None")
+        super().__init__("Rifle", ".303", "Moderate", "None")
 
-class HollowPoint(Ammo):
+class _38_200(Ammo):
     def __init__(self):
-        super().__init__("Hollow Point", "High", "None")
+        super().__init__("Revolver", ".38/200", "Low", "None")
 
-class Buckshot(Ammo):
+class _792x57mmMauser(Ammo):
     def __init__(self):
-        super().__init__("Buckshot", "Low", "None")
+        super().__init__("Rifle", "7.92x57mm", "High", "None")
 
-class Rocket(Ammo):
+class _9x19mmParabellum(Ammo):
     def __init__(self):
-        super().__init__("Rocket", "Low", "High")
+        super().__init__("Submachine Gun", "9x19mm", "Low", "None")
 
-class Missile(Ammo):
+class _8cmPak43(Ammo):
     def __init__(self):
-        super().__init__("Missile", "Very High", "Very High")
+        super().__init__("Anti-tank Gun", "8.8cm", "Very High", "High")
 
-class Nato556mm(Ammo):
+class PistolAmmo(Ammo):
     def __init__(self):
-        super().__init__("5.56mm", "Moderate", "None")
+        super().__init__("Pistol", "9mm", "Low", "None")
 
-class Standard762mm(Ammo):
+class Dynamite(Ammo):
     def __init__(self):
-        super().__init__("7.62mm", "High", "None")
+        super().__init__("Explosive", "N/A", "Low", "High")
+
+class Grenade(Ammo):
+    def __init__(self):
+        super().__init__("Grenade", "N/A", "Low", "High")
