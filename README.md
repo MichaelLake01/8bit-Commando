@@ -1,2 +1,2 @@
-# 64bit-Commando
-A 64bit strategy game
+# 8bit-Commando
+A 8bit strategy game
