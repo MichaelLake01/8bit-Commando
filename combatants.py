@@ -1,30 +1,40 @@
-from weapon import *
-
-class Combatants:
-    def __init__(self, weapon, armor, cover, state, exp, sprite):
+class Combatant:
+    def __init__(self, weapon, armor, state, exp):
         self.weapon = weapon
         self.armor = armor
-        self.cover = cover
         self.state = state
         self.exp = exp
-        self.sprite = sprite
 
     def display(self):
         print(f"Weapon: {self.weapon}")
         print(f"Armor: {self.armor}")
-        print(f"Cover: {self.cover}")
         print(f"State: {self.state}")
-        print(f"Veterancy: {self.exp}")
+        print(f"Experience: {self.exp}")
 
-class Marine(Combatants):
-    def __init_subclass__(self):
-        super().__init__(M16(), "Slate", "None", 1, "Reg")
+class Infantry(Combatant):
+    def __init__(self):
+        super().__init__("M16", 1, "Healthy", "Private")
 
+class LMG_Gunner(Combatant):
+    def __init__(self):
+        super().__init__("LMG", 1.5, "Healthy", "Corporal")
 
+class Engineer(Combatant):
+    def __init__(self):
+        super().__init__("SMG", 1, "Healthy", "Sergeant")
 
+class Medic(Combatant):
+    def __init__(self):
+        super().__init__("SMG", 1, "Healthy", "Corporal")
 
-class Insurgent(Combatants):
-    def __init_subclass__(self):
-        super().__init__(AK47(), "None", "None", 1, "Conscript")
+class Sniper(Combatant):
+    def __init__(self):
+        super().__init__("Sniper Rifle", 1, "Healthy", "Sergeant")
 
+class Tank_Crew(Combatant):
+    def __init__(self):
+        super().__init__("Pistol", 1.5, "Healthy", "Sergeant")
 
+class Officer(Combatant):
+    def __init__(self):
+        super().__init__("Pistol", 1.5, "Healthy", "Captain")

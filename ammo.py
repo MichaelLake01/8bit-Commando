@@ -1,44 +1,31 @@
-class Ammo:
-    def __init__(self, ammo_type, caliber, piercing, explosive):
-        self.ammo_type = ammo_type
-        self.caliber = caliber
-        self.piercing = piercing
-        self.explosive = explosive
 
-    def display(self):
-        print(f"Ammo Type: {self.ammo_type}")
-        print(f"Caliber: {self.caliber}")
-        print(f"Piercing: {self.piercing}")
-        print(f"Explosive: {self.explosive}")
+#AMMO       
+ammo_types = {
+  "rocket": {"name": "Rocket 88mm", "caliber": 88, "weight": 12.5},
+  "mortar": {"name": "Mortar 8cm", "caliber": 80, "weight": 5.5},
+  "parabellum": {"name": "Parabellum 9x19mm", "caliber": 9, "weight": 0.02},
+  "mauser": {"name": "Mauser 7.92x57mm", "caliber": 7.92, "weight": 0.02},
+  "pak40_HEAT": {"name": "75mm HEAT", "caliber": 75, "weight": 8.5},
+  "pak40_APCR": {"name": "75mm APCR", "caliber": 75, "weight": 8.5},
+  "88mm_HEAT": {"name": "88mm HEAT", "caliber": 88, "weight": 30.0},
+  "88mm_APCR": {"name": "88mm APCR", "caliber": 88, "weight": 30.0},
+  "panther_HEAT": {"name": "75mm HEAT", "caliber": 75, "weight": 25.0},
+  "panther_APCR": {"name": "75mm APCR", "caliber": 75, "weight": 25.0},
+}
 
-class _303British(Ammo):
-    def __init__(self):
-        super().__init__("Rifle", ".303", "Moderate", "None")
+def generate_penetration(ammo_types):
+    for ammo_type in ammo_types:
+        velocity = 100 # Assume velocity is 100 for simplicity
+        caliber = ammo_types[ammo_type]["caliber"]
+        weight = ammo_types[ammo_type]["weight"]
 
-class _38_200(Ammo):
-    def __init__(self):
-        super().__init__("Revolver", ".38/200", "Low", "None")
+        # Penetration formula
+        penetration = (caliber**2) * weight * velocity
 
-class _792x57mmMauser(Ammo):
-    def __init__(self):
-        super().__init__("Rifle", "7.92x57mm", "High", "None")
+        # Store the calculated penetration value in the dictionary
+        ammo_types[ammo_type]["penetration"] = penetration
 
-class _9x19mmParabellum(Ammo):
-    def __init__(self):
-        super().__init__("Submachine Gun", "9x19mm", "Low", "None")
+# Call the function to generate the penetration values
+generate_penetration(ammo_types)
 
-class _8cmPak43(Ammo):
-    def __init__(self):
-        super().__init__("Anti-tank Gun", "8.8cm", "Very High", "High")
 
-class PistolAmmo(Ammo):
-    def __init__(self):
-        super().__init__("Pistol", "9mm", "Low", "None")
-
-class Dynamite(Ammo):
-    def __init__(self):
-        super().__init__("Explosive", "N/A", "Low", "High")
-
-class Grenade(Ammo):
-    def __init__(self):
-        super().__init__("Grenade", "N/A", "Low", "High")

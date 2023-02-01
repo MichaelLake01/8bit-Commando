@@ -1,5 +1,7 @@
-from ammo import *
 import random
+from ammo import *
+
+
 
 class Weapon:
     def __init__(self, name, accuracy, reliability, ammo):
@@ -8,6 +10,7 @@ class Weapon:
         self.reliability = reliability
         self.ammo = ammo
         self.state = 1
+
 
     def display(self):
         print(f"Weapon Name: {self.name}")
@@ -31,30 +34,22 @@ class Weapon:
             print(f"{self.name} is functioning properly.")
 
 
-class M16(Weapon):
-    def __init__(self):
-        super().__init__("M16", 0.85, 0.90, Nato556mm())
+class Weapon:
+    def __init__(self, name, fire_rate, ammo_type, reliability, speed, accuracy):
+        self.name = name
+        self.fire_rate = fire_rate # rounds per minute
+        self.ammo_type = ammo_type # caliber and cartridge type
+        self.reliability = reliability # percentage of successful firings
+        self.speed = speed # meters per second
+        self.accuracy = accuracy # accuracy in centimeters at 100 meters
 
-class AK47(Weapon):
-    def __init__(self):
-        super().__init__("AK47", 0.75, 0.95, Standard762mm())
-
-class RocketLauncher(Weapon):
-    def __init__(self):
-        super().__init__("Missile Launcher", 0.65, 0.80, Missile())
-
-class Minigun(Weapon):
-    def __init__(self):
-        super().__init__("Minigun", 0.50, 0.85, Standard762mm())
-
-class Sniper(Weapon):
-    def __init__(self):
-        super().__init__("Sniper Rifle", 0.95, 0.95, HollowPoint())
-
-class RPG(Weapon):
-    def __init__(self):
-        super().__init__("RPG", 0.75, 0.90, Rocket())
-
-class Shotgun(Weapon):
-    def __init__(self):
-        super().__init__("Shotgun", 0.70, 0.80, Buckshot())
+# Create instances of the Weapon class for each weapon
+mauser_karabiner_98k = Weapon("Mauser Karabiner 98k", 60, ammo_types["mauser"], 0.95, 250, 5)
+mp40 = Weapon("MP40", 600, ammo_types["parabellum"], 0.92, 300, 10)
+mg42 = Weapon("MG42", 900, ammo_types["mauser"], 0.93, 350, 15)
+pak_40 = Weapon("PAK 40", 60, [ammo_types["pak40_ACPR"], ammo_types["pak40_HEAT"]], 0.95, 300, 3)
+_88mm_kwk_gun = Weapon("Tiger I 88mm KwK 36 L/56", 60, [ammo_types["88mm_ACPR"], ammo_types["88mm_HEAT"]], 0.98, 300, 2)
+_75mm_kwk_gun = Weapon("Panther 75mm KwK 42 L/70", 60, [ammo_types["panther_ACPR"], ammo_types["panther_HEAT"]], 0.98, 300, 2)
+mp3008 = Weapon("MP3008", 600, ammo_types["parabellum"], 0.93, 300, 8)
+p_38 = Weapon("P-38", 60, ammo_types["parabellum"], 0.96, 250, 4)
+panzerschrek = Weapon("Panzerschrek", 60, ammo_types["rocket"], 0.97, 250, 3)
