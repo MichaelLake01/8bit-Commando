@@ -33,7 +33,7 @@ class Weapon:
         else:
             print(f"{self.name} is functioning properly.")
 
-    def define_muzzle_velocity():
+    def define_muzzle_velocity(speed, dir):
         pass
 
 

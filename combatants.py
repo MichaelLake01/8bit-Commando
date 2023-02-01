@@ -1,11 +1,12 @@
 from weapon import *
 
 class Combatant:
-    def __init__(self, weapon, armor, state, veterancy, sprites):
+    def __init__(self, weapon, armor, state, veterancy, sprite_path):
         self.weapon = weapon
         self.armor = armor
         self.state = state
         self.veterancy = veterancy
+        self.sprite_path = sprite_path
 
     def display(self):
         print(f"Weapon: {self.weapon}")
@@ -13,6 +14,13 @@ class Combatant:
         print(f"State: {self.state}")
         print(f"Experience: {self.veterancy}")
         
+
+    def shoot():
+        pass
+
+    def get_direction():
+        pass
+
 
 class Infantry(Combatant):
     def __init__(self):
@@ -22,14 +30,14 @@ class Infantry(Combatant):
             pass
 
 class LMG_Gunner(Combatant):
-    def __init__(self):
+    def __init__(self, sprite_path):
         super().__init__(mg42, 1.5, "Healthy", "Corporal")
 
         def displace():
             pass
 
 class Engineer(Combatant):
-    def __init__(self):
+    def __init__(self, sprite_path):
         super().__init__([mp40, mp3008], 1, "Healthy", "Sergeant")
 
         def repair():
@@ -45,25 +53,25 @@ class Engineer(Combatant):
             pass
 
 class Medic(Combatant):
-    def __init__(self):
+    def __init__(self, sprite_path):
         super().__init__(mp40, 1, "Healthy", "Corporal")
 
         def revive():
             pass
 
 class Sniper(Combatant):
-    def __init__(self):
+    def __init__(self, sprite_path):
         super().__init__(mauser_karabiner_98k, 1, "Healthy", "Sergeant")
 
         def pick_your_targets():
             pass
 
 class Tank_Crew(Combatant):
-    def __init__(self):
+    def __init__(self, sprite_path):
         super().__init__([p_38, mp40], 1.5, "Healthy", ["Sergeant", "Captain"])
 
 class Officer(Combatant):
-    def __init__(self):
+    def __init__(self, sprite_path):
         super().__init__([p_38, mp40], 1.5, "Healthy", "Captain")
 
         def rally():
